@@ -17,8 +17,11 @@
 
     <?php
     require('header.php');
-    require('item.php');
+    //require('item.php');
+    //require ('simple-catalog.php');
+    require('catalog-with-keys.php');
     require('footer.php');
+
     ?>
 
 </div>
