@@ -19,9 +19,9 @@
     <?php
     require('header.php');
     //require('item.php');
-    //require ('simple-catalog.php');
+    require ('simple-catalog.php');
     //require('catalog-with-keys.php');
-    require('multidimensional-catalog.php');
+    //require('multidimensional-catalog.php');
     require('footer.php');
 
     ?>
