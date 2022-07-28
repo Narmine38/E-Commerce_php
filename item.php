@@ -1,7 +1,7 @@
 <?php
 
 $name= 'Bluye';
-$price= '25e';
+$price= 25;
 $img= 'img/bluey.jpg';
 
 ?>
@@ -10,15 +10,11 @@ $img= 'img/bluey.jpg';
 
 <body>
 
-<?php
-echo "<h1>Article : $name</h1>";
-?>
+<h1> Article : <?php echo $name ?>   </h1>
 
 <img src="<?= $img ?>" alt="sample image" />
 
-<?php
-echo "<p>Prix : $price</p>";
-?>
+<p>Prix: <?php echo $price . 'e' ?> </p>
 
 </body>
 
