@@ -22,6 +22,7 @@ $lotr3 = [
     "discount" => 10,
     "picture_url" => "img/Le-retour-du-roi.jpg",
 ];
+
 ?>
 
 
@@ -45,3 +46,5 @@ $lotr3 = [
     </div>
 
 </div>
+
+
