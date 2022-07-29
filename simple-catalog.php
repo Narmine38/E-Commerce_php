@@ -1,17 +1,25 @@
 <?php
 $products = ["iPhone", "iPad", "iMac"];
-asort($products);
+sort($products);
+
+
+//print_r($products);
+//echo "<br>";
+//print_r($products[0]);
+//echo "<br>";
+//print_r($products[count($products) -1]);
+echo "<br>";
 for ($i = 0; $i < count($products); $i=$i+1) {
-    $odd_products = $products[$i];
-    echo $odd_products . "\n";
+        echo $products[$i];
+    echo "<br>";
 }
 
-/*print_r($products);
-echo "<br>";
-print_r($products[0]);
-echo "<br>";
-print_r($products[2]);*/
-
+foreach ($products as $key => $product){
+    echo $product;
+    echo "<br>";
+    echo $key;
+    echo "<br>";
+}
 
 
 
