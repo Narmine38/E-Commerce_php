@@ -82,8 +82,8 @@ $books = [
 
 
 <div class="container-fluid col-12 d-flex  ">
-    <?php foreach ($books as $key => $book) { ?>
-        <?= $key ?>
+    <?php foreach ($books as $book) { ?>
+
         <div class="col-4">
             <h3><?php echo $book["name"] ?></h3>
             <img src="<?= $book["picture_url"] ?>" class="" alt="lotr">
