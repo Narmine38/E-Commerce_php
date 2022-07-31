@@ -1,5 +1,5 @@
 <!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="container-fluide my-5 bg-dark">
+<div class="container-fluid my-5 bg-dark">
 
     <!-- Footer -->
     <footer
@@ -63,16 +63,16 @@
                             style="width: 60px; background-color: #7c4dff; height: 2px"
                         />
                         <p>
-                            <a href="#!" class="text-white">Shop</a>
+                            <a href="#" class="text-white">Shop</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">BonPlan</a>
+                            <a href="#" class="text-white">BonPlan</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Catégorie</a>
+                            <a href="#" class="text-white">Catégorie</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">BDisabled</a>
+                            <a href="#" class="text-white">BDisabled</a>
                         </p>
                     </div>
                     <!-- Grid column -->
@@ -86,16 +86,16 @@
                             style="width: 60px; background-color: #7c4dff; height: 2px"
                         />
                         <p>
-                            <a href="#!" class="text-white">Your Account</a>
+                            <a href="#" class="text-white">Your Account</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Become an Affiliate</a>
+                            <a href="#" class="text-white">Become an Affiliate</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Shipping Rates</a>
+                            <a href="#" class="text-white">Shipping Rates</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Help</a>
+                            <a href="#" class="text-white">Help</a>
                         </p>
                     </div>
                     <!-- Grid column -->
