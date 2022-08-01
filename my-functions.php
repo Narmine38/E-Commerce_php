@@ -1,22 +1,20 @@
 <?php
 
 
-function formatPrice($param): void
+function formatPrice(int $param): void
 {
-    $param = $param/100;
+    $param = $param / 100;
     echo number_format($param, 2) . "€" ;
 }
 
-function priceExcludingVAT($prixTTC, $tva = 20): float{
-
-    return ((100*$prixTTC)/(100+$tva));
-
-
+function priceExcludingVAT(int $prixTTC, int $tva = 20): int
+{
+   return ($prixTTC) / (1 + $tva / 100);
 }
 
-function discountedPrice($prixTTC, $discount): int{
+function discountedPrice(int $prixTTC, int $discount): int{
 
-    return (($prixTTC*100)/(100+$discount));
+    return ($prixTTC) / (1 + $discount / 100);
 
 
 

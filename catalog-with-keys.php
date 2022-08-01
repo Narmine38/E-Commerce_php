@@ -8,7 +8,7 @@ $lotr = [
     "editor" => "Bourgois",
     "collection" => "Tolkien",
     "format" => "15cm x 24cm",
-    "no.of_pages" => 528,
+    "no_of_pages" => 528,
     "release_date" => "Oct. 2014",
     "discount" => 10,
     "tva" => 20,
@@ -18,7 +18,7 @@ $lotr = [
 $lotr2 = [
     "name" => "Le Seigneur des anneaux - Tome 2",
     "price" => 2000,
-    "no.of_pages" => 432,
+    "no_of_pages" => 432,
     "editor" => "Bourgois",
     "collection" => "Tolkien",
     "format" => "15cm x 24cm",
@@ -31,7 +31,7 @@ $lotr2 = [
 $lotr3 = [
     "name" => "Le Seigneur des anneaux - Tome 3",
     "price" => 2000,
-    "no.of_pages" => 497,
+    "no_of_pages" => 497,
     "editor" => "Bourgois",
     "collection" => "Tolkien",
     "format" => "15cm x 24cm",
@@ -57,7 +57,7 @@ $lotr3 = [
         <h4>Editeur <?php echo $lotr["editor"] ?></h4>
         <h4>Collection <?php echo $lotr["collection"] ?></h4>
         <h4>Format <?php echo $lotr["format"] ?></h4>
-        <h4>Nombre de pages <?php echo $lotr["no.of_pages"] ?></h4>
+        <h4>Nombre de pages <?php echo $lotr["no_of_pages"] ?></h4>
     </div>
 
     <div class="col-4">
@@ -72,7 +72,7 @@ $lotr3 = [
         <h4>Editeur <?php echo $lotr2["editor"] ?></h4>
         <h4>Collection <?php echo $lotr2["collection"] ?></h4>
         <h4>Format <?php echo $lotr2["format"] ?></h4>
-        <h4>Nombre de pages <?php echo $lotr2["no.of_pages"] ?></h4>
+        <h4>Nombre de pages <?php echo $lotr2["no_of_pages"] ?></h4>
     </div>
 
     <div class="col-4">
@@ -87,7 +87,7 @@ $lotr3 = [
         <h4>Editeur <?php echo $lotr3["editor"] ?></h4>
         <h4>Collection <?php echo $lotr3["collection"] ?></h4>
         <h4>Format <?php echo $lotr3["format"] ?></h4>
-        <h4>Nombre de pages <?php echo $lotr3["no.of_pages"] ?></h4>
+        <h4>Nombre de pages <?php echo $lotr3["no_of_pages"] ?></h4>
     </div>
 
 </div>

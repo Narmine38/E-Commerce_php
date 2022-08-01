@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f4c57f-0bd3-4f71-b4c2-6fbd01fe9fce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/my-functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog-with-keys.php" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-with-keys.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multidimensional-catalog.php" beforeDir="false" afterPath="$PROJECT_DIR$/multidimensional-catalog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/my-functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/E-Commerce_php",
+    "last_opened_file_path": "C:/xampp/htdocs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -53,11 +53,22 @@
       <option name="presentableId" value="Default" />
       <updated>1659001224947</updated>
       <workItem from="1659001226113" duration="2085000" />
-      <workItem from="1659341799692" duration="9039000" />
+      <workItem from="1659341799692" duration="16057000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
