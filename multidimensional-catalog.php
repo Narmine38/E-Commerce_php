@@ -50,6 +50,18 @@ $books = [
             <h2>Prix : <?php formatPrice($book["price"]) ?></h2>
             <p>Prix HT: <?php formatPrice(priceExcludingVAT($book["price"]));?></p>
             <p>-<?= $book['discount'] ?>%</p>
+
+            <?php
+            if ($book['discount'] !== null) {
+                ?>
+                <p><span style="text-decoration: line-through red;"><?php formatPrice($book["price"]) ?> </span> TTC  <strong>-<?= $book['discount'] ?>%</strong></p>
+                <p>Prix : <strong><?php formatPrice(discountedPrice($book["price"], $book['discount'])); ?></strong></p>
+                <?php
+            } else { ?>
+                <p>Prix : <strong><?php formatPrice($book["price"]) ?></strong></p>
+                <?php
+            } ?>
+
             <p>Prix promo: <?php formatPrice(discountedPrice($book["price"], $book['discount']));?></p>
             <h3>Caractéristiques</h3>
             <h4>Date de parution <?php echo $book["release_date"] ?></h4>
