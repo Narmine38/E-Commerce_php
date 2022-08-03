@@ -1,6 +1,6 @@
 <?php
 
-require_once ('my-functions.php');
+require_once('my-functions.php');
 
 $lotr = [
     "name" => "Le Seigneur des anneaux - Tome 1",

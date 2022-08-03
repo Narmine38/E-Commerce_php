@@ -27,7 +27,7 @@
         </ul>
     </div>
     <div class=" col-6 d-flex justify-content-center ">
-        <img src="img/HerosMarkets.png" width="730" height="200" class="img-fluid">
+        <img src="img/HerosMarkets.png" width="400" height="200" class="img-fluid">
     </div>
     <div class=" col-3 d-flex justify-content-center">
         <form class="d-flex" role="search">
