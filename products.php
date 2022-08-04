@@ -1,5 +1,5 @@
 <?php
-
+global $books;
 $books = [
     "lotr" => [
         "name" => "Le Seigneur des anneaux - Tome 1",

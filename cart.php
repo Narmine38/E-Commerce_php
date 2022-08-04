@@ -1,39 +1,14 @@
 <?php
-var_dump($_POST);
+//var_dump($_POST);
 require('products.php');
-require ('my-functions.php');
-require ('404.php');
+require('my-functions.php');
+require('404.php');
 global $books;
 
 
+$key = $_POST['valeur'];
+$quantity = $_POST['quantity'];
 
-// Vérifier si le formulaire est soumis
-if (isset($_POST['submit'])) {
-    /* récupérer les données du formulaire en utilisant
-       la valeur des attributs name comme clé
-      */
-//    $nom = $_POST['nom'];
-//    $age = $_POST['age'];
-    $adresse = $_POST['quantité'];
-
-
-}
-
-if( $adresse < 0) {
-    http_redirect ("http://localhost/E-Commerce_php/404.php"  );
-}
-//mon code
-
-//if (isset($_POST['submit'])) {
-//    /* récupérer les données du formulaire en utilisant
-//       la valeur des attributs name comme clé
-//      */
-//    $key = $_POST['quantité'];
-//    $age = $_GET['age'];
-//    $adresse = $_GET['adresse'];
-//
-//
-//}
 
 ?>
 
@@ -59,34 +34,54 @@ if( $adresse < 0) {
     ?>
 </header>
 
-<main>
+<main class="text-white text-center ">
 
-    <div id="panier" class="container justify-content-center  text-center border-primary border-top bg-dark text-white  ">
+    <div id="panier"
+         class="container justify-content-center  bg-dark border-primary border-top   ">
         <div class="row">
             <div class="col">
                 <h5 class="border-bottom border-primary mb-3">Produit</h5>
-                <h6 class="border-bottom border-primary mb-3"></h6>
+                <h6 class="border-bottom border-primary mb-3"><?= $books[$key]["name"] ?></h6>
             </div>
             <div class="col">
                 <h5 class="border-bottom border-primary mb-3">prix unitaire</h5>
-                <h6 class="border-bottom border-primary mb-3"></h6>
+                <h6 class="border-bottom border-primary mb-3"> <?= formatPrice($books[$key]["price"]) ?></h6>
             </div>
             <div class="col">
                 <h5 class="border-bottom border-primary mb-3">Quantité</h5>
-                <h6 class="border-bottom border-primary mb-3"><?php echo $adresse ?></h6>
-                <h5 class="mb-3">Total HT</h5>
+                <h6 class="border-bottom border-primary mb-3"> <?php echo $quantity ?></h6>
+                <h5 class="mb-3">Total HT </h5>
                 <h5 class="mb-3">TVA</h5>
-                <h5 class="mb-3">Total TTC</h5>
+                <h5 class="mb-3">Total TTC </h5>
             </div>
             <div class="col">
                 <h5 class="border-bottom border-primary mb-3">Total</h5>
-                <h6 class="border-bottom border-primary mb-3">empty</h6>
-                <h6 class="border-bottom border-primary mb-3">empty</h6>
-                <h6 class="border-bottom border-primary mb-3">empty</h6>
-                <h6 class="border-bottom border-primary mb-3">empty</h6>
+                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total($books[$key]["price"], $quantity)) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total($books[$key]["price"], $quantity) - total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total($books[$key]["price"], $quantity)) ?></h6>
             </div>
         </div>
     </div>
+
+
+    <form class="container col-10  d-flex justify-content-center bg-dark " method="post" action="cart.php">
+        <select class="me-5 rounded-pill" style="width: 60%" >
+            <option>BNP</option>
+            <option>LA poste</option>
+            <option>Amazon</option>
+            <option>Gaumont</option>
+        </select>
+        <input style="width: 200px" class="btn btn-primary" type="submit" value="Valider">
+    </form>
+    <div class="container col-10 bg-dark d-flex justify-content-end ">
+       <div class="col-4 mt-3">
+           <h5 class="mb-3">Total HT <?= formatPrice(total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h5>
+           <h5 class="mb-3">TVA <?= formatPrice(total($books[$key]["price"], $quantity) - total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h5>
+       </div>
+    </div>
+
+
 </main>
 
 <footer>

@@ -19,7 +19,9 @@ function discountedPrice(int $prixTTC, int $discount): int
 function creatCard()
 {
     global $books;
-    foreach ($books as $book) { ?>
+
+    foreach ($books as $key => $book) { ?>
+
         <div class="container-xxl d-flex justify-content-center  p-2  border rounded mt-2 bg-dark">
 
             <div class="col-md-3 mt-1">
@@ -60,32 +62,48 @@ function creatCard()
 
                         <h4 class="mr-3 text-white"><?php formatPrice($book["price"]) ?></h4>
 
+
                         <?php
                     } else { ?>
                         <span class="strike-text"><?php formatPrice($book["price"]) ?></span>
                         <h4 id="prixttc"
                             class="mr-3 text-white"><?php formatPrice(discountedPrice($book["price"], $book['discount'])); ?></h4>
+
                         <span class="text-white" id="pourcent">-<?= $book['discount'] ?>%</span>
                         <?php
                     } ?>
 
                 </div>
                 <h6 class="text-success">Livraison gratuite</h6>
-                <form action="cart.php" method="post">
-                    <label>
-                        <input type="number" name="quantité" value="0" min="-10">
+
+                <form method="post" action="cart.php">
+                    <label for="quantity"> quantity</label>
+                    <label class="justify-content-center">
+                        <input style="width: 200px" type="number" name="quantity" min="1" max="10">
                     </label>
-                    <button class="btn btn-primary btn-sm" type="submit">Ajouter au panier</button>
+                    <input type="hidden" name="valeur" value="<?= $key ?>">
+                    <br>
+                    <div class="d-flex flex-column mt-4 ">
+                        <button style="width: 50%" class="btn btn-primary btn-sm" type="submit">Ajouter au panier</button>
+                        <button style="width: 50%" class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button>
+                    </div>
+
                 </form>
-                <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Ajouter à ma liste de souhaits
-                    </button>
-                </div>
-                <form class="text-white" action="cart.php" method="post">
-                    <input type="number" name="quantité" value="0" min="-10">
-                    <input type="submit" name="submit"/>
-                </form>
+
+
             </div>
         </div>
     <?php }
+
+
 }
+
+function total($prix, $quantity){
+
+    return $prix * $quantity;
+
+}
+
+
+
+
