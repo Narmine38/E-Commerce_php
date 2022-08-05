@@ -1,5 +1,6 @@
 <?php
 global $books;
+
 $books = [
     "lotr" => [
         "name" => "Le Seigneur des anneaux - Tome 1",
@@ -11,7 +12,7 @@ $books = [
         "release_date" => "Oct. 2014",
         "discount" => 10,
         "author" => "J.R.R. Tolkien",
-        "weight" => "0,7760",
+        "weight" =>  0.116,
         "resum" => "Depuis sa publication en 1954-1955, le récit des aventures de Frodo et de ses compagnons,<br>
             traversant la Terre du Milieu au péril de leur vie pour détruire l'Anneau forgé par Sauron,<br>
             a enchanté des dizaines de millions de lecteurs,<br>
@@ -30,7 +31,7 @@ $books = [
         "release_date" => "Oct. 2015",
         "discount" => 5,
         "author" => "J.R.R. Tolkien",
-        "weight" => "0,7760",
+        "weight" => 0.776,
         "resum" => "Les Deux Tours, deuxième partie du Seigneur des Anneaux, poursuit le récit des aventures de Frodo et de ses compagnons,<br> 
             lancés dans leur périple en Terre du Milieu.<br>
             Avec Merry et Pippin, le lecteur plonge dans les batailles entre les Orques et les Cavaliers du Rohan,<br>
@@ -49,10 +50,44 @@ $books = [
         "release_date" => "Oct. 2016",
         "discount" => 0,
         "author" => "J.R.R. Tolkien",
-        "weight" => "0,7760",
+        "weight" => 0.785,
         "resum" => "Le royaume de Gondor s'arme contre Sauron, seigneur des ténèbres,<br> 
             qui veut asservir tous les peuples libres, hommes et elfes, nains et hobbits.<br>
             Mais la vaillance des soldats de Minas Tirith ne peut désormais plus rien contre la puissance maléfique de Mordor.",
         "picture_url" => "img/Le-retour-du-roi.jpg"
     ],
 ];
+
+
+
+$deliveryCompagny = [
+
+    "dhl" => [
+
+        "small_package" => 500,
+        "medium_package" => 10,
+        "big_package" => "Livraison Gratuite",
+        "delai" => "2 à 3 jours ouvrés"
+
+
+    ],
+
+    "ups" => [
+
+        "small_package" => 15,
+        "medium_package" => 25,
+        "big_package" => "Livraison Gratuite",
+        "delai" => "Livraison Demain"
+
+
+    ],
+
+];
+
+
+
+
+
+
+
+

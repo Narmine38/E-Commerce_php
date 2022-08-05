@@ -16,11 +16,11 @@ function discountedPrice(int $prixTTC, int $discount): int
     return ($prixTTC) / (1 + $discount / 100);
 }
 
-function creatCard()
-{
-    global $books;
+function creatCard($books)
+{ ?>
 
-    foreach ($books as $key => $book) { ?>
+    <form method="post" action="cart.php">
+   <?php foreach ($books as $key => $book) { ?>
 
         <div class="container-xxl d-flex justify-content-center  p-2  border rounded mt-2 bg-dark">
 
@@ -76,34 +76,63 @@ function creatCard()
                 </div>
                 <h6 class="text-success">Livraison gratuite</h6>
 
-                <form method="post" action="cart.php">
+
                     <label for="quantity"> quantity</label>
                     <label class="justify-content-center">
-                        <input style="width: 200px" type="number" name="quantity" min="1" max="10">
+                        <input style="width: 200px" type="number" name="quantity" min="-10" max="10">
                     </label>
-                    <input type="hidden" name="valeur" value="<?= $key ?>">
+                    <input type="hidden" name="productsKeys" value="<?= $key ?>">
+
                     <br>
                     <div class="d-flex flex-column mt-4 ">
                         <button style="width: 50%" class="btn btn-primary btn-sm" type="submit">Ajouter au panier</button>
                         <button style="width: 50%" class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button>
                     </div>
-
-                </form>
-
-
             </div>
         </div>
-    <?php }
+    <?php } ?>
+    </form>
 
-
-}
+<?php }
 
 function total($prix, $quantity){
 
-    return $prix * $quantity;
+    return  $prix * $quantity;
+
+}
+
+function checkQuantity($quantity): void{
+    if($quantity<1){
+        header("Location: http://localhost/E-Commerce_php/404.php");
+        exit;
+    }
+}
+
+function weightTotal($weight, $quantity){
+
+    $end = $weight * $quantity  ;
+    return number_format($end, 2) . "kg";
+
 
 }
 
 
+function priceTransport($prix, $weight, $quantity){
+
+    $weight = weightTotal($weight, $quantity);
+
+    if ($weight < 500){
+        $prix = $prix + 500;
+        return $prix;
+    }elseif  ($weight < 2001){
+
+        $prix = $prix + $prix/100*10;
+        return $prix;
+    }elseif ($weight >= 2002){
+
+        echo "Livraision Gratuite";
+
+    }
 
 
+}

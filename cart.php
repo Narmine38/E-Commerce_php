@@ -1,14 +1,24 @@
 <?php
-//var_dump($_POST);
+session_start();
+global $books;
+global $deliveryCompagny;
 require('products.php');
 require('my-functions.php');
-require('404.php');
-global $books;
+$deliveryKey = "dhl";
 
 
-$key = $_POST['valeur'];
-$quantity = $_POST['quantity'];
 
+if (!isset($_POST['valeur']) && !isset($_POST['quantity'])) {
+    header("Location: http://localhost/E-Commerce_php");
+    exit;
+} else {
+    $key = $_POST['valeur'];
+    $quantity = $_POST['quantity'];
+    checkQuantity($quantity);
+}
+if (isset($_POST['delivery'])) {
+    $deliveryKey = $_POST['delivery'];
+}
 
 ?>
 
@@ -45,7 +55,8 @@ $quantity = $_POST['quantity'];
             </div>
             <div class="col">
                 <h5 class="border-bottom border-primary mb-3">prix unitaire</h5>
-                <h6 class="border-bottom border-primary mb-3"> <?= formatPrice($books[$key]["price"]) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"> <?php formatPrice($books[$key]["price"]) ?></h6>
+                <h5 class="border-bottom border-primary mb-3"></h5>
             </div>
             <div class="col">
                 <h5 class="border-bottom border-primary mb-3">Quantité</h5>
@@ -56,29 +67,35 @@ $quantity = $_POST['quantity'];
             </div>
             <div class="col">
                 <h5 class="border-bottom border-primary mb-3">Total</h5>
-                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total($books[$key]["price"], $quantity)) ?></h6>
-                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h6>
-                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total($books[$key]["price"], $quantity) - total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h6>
-                <h6 class="border-bottom border-primary mb-3"><?= formatPrice(total($books[$key]["price"], $quantity)) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"><?php formatPrice(total($books[$key]["price"], $quantity)) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"><?php formatPrice(total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"><?php formatPrice(total($books[$key]["price"], $quantity) - total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h6>
+                <h6 class="border-bottom border-primary mb-3"><?php formatPrice(total($books[$key]["price"], $quantity)) ?></h6>
             </div>
         </div>
     </div>
 
 
-    <form class="container col-10  d-flex justify-content-center bg-dark " method="post" action="cart.php">
-        <select class="me-5 rounded-pill" style="width: 60%" >
-            <option>BNP</option>
-            <option>LA poste</option>
-            <option>Amazon</option>
-            <option>Gaumont</option>
+    <form action="cart.php" method="post" class="container col-10  d-flex justify-content-center bg-dark ">
+        <select name="delivery" class="me-5 rounded-pill" style="width: 60%">
+            <option value="">Sélectionnez un transporteur</option>
+            <?php foreach ($deliveryCompagny as $deliveryKeyk => $delivery) { ?>
+                <option value="<?= $deliveryKeyk ?>"> <?= $deliveryKeyk ?></option>
+            <?php } ?>
+            <input type="hidden" name="valeur" value="<?= $key ?>">
+            <input type="hidden" name="quantity" value="<?= $quantity ?>">
         </select>
         <input style="width: 200px" class="btn btn-primary" type="submit" value="Valider">
     </form>
+
+
     <div class="container col-10 bg-dark d-flex justify-content-end ">
-       <div class="col-4 mt-3">
-           <h5 class="mb-3">Total HT <?= formatPrice(total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h5>
-           <h5 class="mb-3">TVA <?= formatPrice(total($books[$key]["price"], $quantity) - total(priceExcludingVAT($books[$key]["price"]), $quantity)) ?></h5>
-       </div>
+        <div class="col-4 mt-3">
+            <h5 class="mb-3">Date de livraison : <?php echo $deliveryCompagny[$deliveryKey]['delai']; ?> </h5>
+            <h5 class="mb-3">Poids de la commande : <?php echo weightTotal($books[$key]["weight"], $quantity); ?>  </h5>
+            <h5 class="mb-3">Total aprés frais de livraison
+                : <?php formatPrice(priceTransport(total($books[$key]["price"], $quantity), $books[$key]["weight"], $quantity)) ?> </h5>
+        </div>
     </div>
 
 
